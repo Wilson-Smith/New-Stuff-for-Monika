@@ -7,31 +7,32 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="doing_something_brb",
+            eventlabel="watching_something_brb",
             category=["be right back"],
-            prompt="I'm going to do stuff",
+            prompt="I'm going to go watch stuff",
             pool=True,
             unlocked=True,
 
         ),
+        markSeen=True
     )
 
-label doing_something_brb:
-    $ ev = mas_getEV("doing_something_brb")
+label watching_something_brb:
+    $ ev = mas_getEV("watching_something_brb")
 
     if ev.shown_count == 0:
         m 1eud "Oh,{w=0.1} really?"
-        m 3rksdla "Well, I could do something with you if you wanted me to."
+        m 3rksdla "Well, I could watch with you if you wanted me to."
         m 2ekbla "It would be a nice way to spend time together next time."
 
     else:
         m 1eub "Okay, [mas_get_player_nickname()]."
         m 3eua "I'll be here when you get back."
 
-$ mas_idle_mailbox.send_idle_cb("doing_something_brb_callback")
+$ mas_idle_mailbox.send_idle_cb("watching_something_brb_callback")
 return "idle"
 
-label doing_something_brb_callback:
+label watching_something_brb_callback:
     m 1hub "Welcome back!"
     m 2eua "I hope you had fun."
     m 2lkblsdru "I'd be lying if I said I wasn't happy you're back spending time with me again, though."
@@ -41,7 +42,7 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="doing_things_together",
+            eventlabel="watching_things_together_tutorial",
             random=True,
             pool=False,
             aff_range=(mas_aff.HAPPY, None)
@@ -49,14 +50,14 @@ init 5 python:
         ),
     )
 
-label doing_things_together:
+label watching_things_together_tutorial:
 
     m 3eua "Did you know that I can watch things with you?"
     m 4esb "All you have to do is make sure the 'Fullscreen' option is unchecked in the settings menu."
     m 1eub "That will let you resize the game's window so you can place me next to the video player."
     m 1hub "Or next to whatever else you might want to show me!"
-    m 7eua "Then,{w=0.1} you should look up the 'Do you want to do something with me?' topic to let me know that we're going to be..."
-    m 7hksdrb "Well,{w=0.1} doing something!{w=0.3} Ahaha."
+    m 7eua "Then,{w=0.1} you should look up the 'Do you want to watch something with me?' topic to let me know that we're going to be..."
+    m 7hksdrb "Well,{w=0.1} watching something!{w=0.3} Ahaha."
     m 2ekblsdra ".{w=0.1}.{w=0.1}."
     m 5rkbfsdru "I just thought it might be a nice way to spend time together."
     
@@ -73,9 +74,9 @@ init 5 python:
     addEvent(
         Event(
             persistent.event_database,
-            eventlabel="doing_together",
+            eventlabel="watching_together",
             category=["us"],
-            prompt="Do you want to do something with me?",
+            prompt="Do you want to watch something with me?",
             pool=True,
             unlocked=True,
             aff_range=(mas_aff.HAPPY, None),
@@ -96,7 +97,7 @@ label doing_together:
         menu:
             m "What did you have in mind?{fast}"
             
-            "Watch me write something":
+            "Watch me writing":
                 m 1eub "Oh, what are you writing?"
                 $ _history_list.pop()
                 menu:
@@ -127,11 +128,12 @@ label doing_together:
                 extend 1tsblu "Romance?"
                 m 1hublu "Ehehe~"
                 
-            "Watch me doing my homework":
-                $ persistent._mas_watching_you_draw = False
-                $ persistent._mas_watching_you_game = False
-                $ persistent._mas_watching_you_code = False
-                m 2eub "Ok!"
+            # Purely optional
+            #"Watch me doing my homework":
+            #    $ persistent._mas_watching_you_draw = False
+            #    $ persistent._mas_watching_you_game = False
+            #    $ persistent._mas_watching_you_code = False
+            #    m 2eub "Ok!"
 
             "A movie/TV show":
                 $ persistent._mas_watching_you_draw = False
@@ -197,6 +199,8 @@ label doing_together:
             m 7eub "Make sure to keep your code organized and easy to read!"
         elif persistent._mas_watching_you_game:
             m 3huu "I'll be cheering you on!"
+        elif persistent._mas_watching_you_write:
+            m 3hub "Remember my tips!"
         else:
             m 1eub "Let me know when you want to stop or take a break, okay?"
 
