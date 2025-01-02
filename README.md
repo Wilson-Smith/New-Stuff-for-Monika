@@ -3,6 +3,12 @@
 Welcome to New Stuff to Monika, a submod which has several ideas in it.
 This submod has a big variety of thing that can enhance the relationship between you and Monika.
 
+I wanted more topics, events, wallpaper, more things in general. So I write some crap code for getting something more.
+
+It ain't perfect, but one day it will be better and there will be more things.
+
+I hope this lil project can whetting your appetite.
+
 ### New Farewells
 There are lot of new farewells. There are even new farewells where you can take with you Monika, like going to the park...
 
@@ -30,4 +36,6 @@ However, they could be useful for somebody that wants to add something to his ca
 On my way, I stumbled upon different submods. However, sometimes they were 
 
 
-Special thanks to [CensoredUsername/unrpyc](https://github.com/CensoredUsername/unrpyc) for decompiling
+##### Created by a Monika lover
+Special thanks to:
+- [CensoredUsername/unrpyc](https://github.com/CensoredUsername/unrpyc) for decompiling
