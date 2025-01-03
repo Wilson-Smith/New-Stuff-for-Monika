@@ -39,3 +39,4 @@ On my way, I stumbled upon different submods. However, sometimes they were
 ##### Created by a Monika lover
 Special thanks to:
 - [CensoredUsername/unrpyc](https://github.com/CensoredUsername/unrpyc) for decompiling
+- [u/geneTechnician](https://www.reddit.com/user/geneTechnician/) for his "watch_toghether" submod
