@@ -83,7 +83,7 @@ init 5 python:
         ),
     )
 
-label doing_together:
+label watch_together:
 
     if persistent._mas_taking_break_from_watching:
         m 3eua "Ready to keep going, [mas_get_player_nickname()]?"
